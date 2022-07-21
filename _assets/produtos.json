@@ -1,0 +1,13 @@
+{
+    "produtos": 2,
+
+    "1":
+    {
+        "produto": "Nome",
+        "pasta": "pasta",
+
+        "imagens": [ "fachada", "cinemabar", "rooftop", "piscina" ]
+    },
+
+    "selos": [ "selo01" ]
+}

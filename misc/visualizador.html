@@ -1,0 +1,128 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>AdDWeb Visualizador</title>
+     <!-- Bootstrap -->
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    
+    <link href="../style.css" rel="stylesheet">
+    
+    <style> iframe { overflow: hidden; } </style>
+    
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@700&display=swap" rel="stylesheet">
+</head>
+
+<body style="background-color: black;">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12 mt-5 mb-1 text-center">
+                <h2 class="text-center text-white">Visualizador Mobile</h2>
+                <hr class="bg-white">
+                
+                <button class="btn btn-primary text-center mt-1 mb-3" onClick="RefreshAll()">Atualizar</button>
+            </div>
+            
+            <div class="col-12 mt-3 mb-3">
+                <h5 class="text-center text-white">iPhone 5/SE</h5>
+            </div>
+            
+            <div class="col-12 d-flex justify-content-center">     
+                <iframe src="viewer.html" width="320px" height="568px" scrolling="no"></iframe>
+            </div>
+                
+            <div class="col-12 mt-5 mb-3">
+                <h5 class="text-center text-white">Moto G4 / Galaxy S5</h5>
+            </div>
+            
+            <div class="col-12 d-flex justify-content-center">     
+                <iframe src="viewer.html" width="360px" height="640px" scrolling="no"></iframe>
+            </div>
+            
+            <div class="col-12 mt-5 mb-3">
+                <h5 class="text-center text-white">Nexus 7</h5>
+            </div>
+            
+            <div class="col-12 d-flex justify-content-center">     
+                <iframe src="viewer.html" width="600px" height="960px" scrolling="no"></iframe>
+            </div>
+            
+             <div class="col-12 mt-5 mb-3">
+                <h5 class="text-center text-white">iPhone 6/7/8</h5>
+            </div>
+            
+            <div class="col-12 d-flex justify-content-center">     
+                <iframe src="viewer.html" width="375px" height="667px" scrolling="no"></iframe>
+            </div>
+            
+            <div class="col-12 mt-5 mb-3">
+                <h5 class="text-center text-white">iPhone 6/7/8 Plus</h5>
+            </div>
+            
+            <div class="col-12 d-flex justify-content-center">     
+                <iframe src="viewer.html" width="414px" height="736px" scrolling="no"></iframe>
+            </div>
+            
+            <div class="col-12 mt-5 mb-3">
+                <h5 class="text-center text-white">iPhone X</h5>
+            </div>
+            
+            <div class="col-12 d-flex justify-content-center">     
+                <iframe src="viewer.html" width="375px" height="812px" scrolling="no"></iframe>
+            </div>
+            
+            <div class="col-12 mt-5 mb-3">
+                <h5 class="text-center text-white">Galaxy S20</h5>
+            </div>
+            
+            <div class="col-12 d-flex justify-content-center">     
+                <iframe src="viewer.html" width="360px" height="800px" scrolling="no"></iframe>
+            </div>
+
+
+        </div>
+    </div>
+    
+</body>
+    
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    
+    <script>
+        var params = new URLSearchParams(window.location.search);
+        var folder = "";
+        
+        if(params.get('p') != null)
+            var folder = '_assets/' + params.get('p') + '/';
+        
+        var jsn = { }, loaded = false;
+        
+        if(params.get('json') != null)
+        {
+            jsn = JSON.parse(decodeURIComponent(atob(params.get('json'))));
+            loaded = true;
+        }
+        
+        if(loaded == true)
+        {
+            for(var i = 0; i < $('iframe').length; i++)
+            {
+                $('iframe')[i].contentWindow.location.reload(true);
+                $('iframe')[i].contentWindow.location.href = 'viewer.html?p=' + params.get('p') + '&json=' + params.get('json');
+            }
+        }
+        
+        function RefreshAll()
+        {
+            for(var i = 0; i < $('iframe').length; i++)
+            {
+                $('iframe')[i].contentWindow.location.reload(true);
+                $('iframe')[i].contentWindow.location.href = 'viewer.html?p=' + params.get('p') + '&json=' + params.get('json');
+            }  
+        }
+        
+    </script>
+</html>

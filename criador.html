@@ -1,0 +1,190 @@
+<!doctype html>
+<!-- Criador de Ads para a plataforma -->
+<html>
+<head>
+<meta charset="utf-8">
+<title>AdDWeb Criador</title>
+     <!-- Bootstrap -->
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    
+    <link href="style.css" rel="stylesheet">
+    
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@700&display=swap" rel="stylesheet">
+</head>
+
+<body style="background-color: black;">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 mt-5 mb-1">
+                <h2 class="text-center text-white">Gerador de textos</h2>
+                <hr class="bg-white">
+            </div>
+            <div class="col-7 mt-3">
+                <input id="LOADJSON" class="form-control mb-4" type="file" placeholder="Carregar arquivo">
+                
+                <select class="form-select mb-4" id="produto" onChange="SelecaoProduto()">
+                   <option selected>Selecione</option>
+                </select>
+                
+                <h4 class="text-left text-white">Texto de entrada:</h4>
+                <hr class="bg-white">
+                <input class="form-control mb-2" id="te_l1" maxlength="15" placeholder="Linha 1" onInput="TextoEntrada()">
+                <input class="form-control mb-2" id="te_l2" maxlength="15" placeholder="Linha 2" style="display: none" onInput="TextoEntrada()">
+                <input class="form-control mb-2" id="te_l3" maxlength="15" placeholder="Linha 3" style="display: none" onInput="TextoEntrada()">
+                <input class="form-control mb-2" id="te_l4" maxlength="15" placeholder="Linha 4" style="display: none" onInput="TextoEntrada()">
+
+                <h4 class="text-left text-white mt-4">Carrossel de imagens</h4>
+                <hr class="bg-white">
+                <label for="ci_i1" class="form-label text-white">Imagem 1:</label>
+                <select class="form-select mb-4" id="ci_i1" onChange="CarrosselImagem()">
+                    <option selected>Nenhum</option>
+                </select>
+                <div class="d-flex justify-content-center align-items-center  pb-3" style="width: 10em; display: none;">
+                    <img class="img-fluid" style="width: 100%; height: auto; align-self: flex-start; display: none;"  id="img1">
+                </div>
+                
+                <label for="ci_i2" class="form-label text-white" style="display: none">Imagem 2:</label>
+                <select class="form-select mb-4" id="ci_i2" style="display: none" onChange="CarrosselImagem()">
+                    <option selected>Nenhum</option>
+                </select>
+                <div class="d-flex justify-content-center align-items-center  pb-3" style="width: 10em; display: none;">
+                    <img class="img-fluid" style="width: 100%; height: auto; align-self: flex-start; display: none"  id="img2">
+                </div>
+                
+                <label for="ci_i3" class="form-label text-white" style="display: none">Imagem 3:</label>
+                <select class="form-select mb-4" id="ci_i3" style="display: none" onChange="CarrosselImagem()">
+                    <option selected>Nenhum</option>
+                </select>
+                <div class="d-flex justify-content-center align-items-center pb-3" style="width: 10em; display: none;">
+                    <img class="img-fluid" style="width: 100%; height: auto; align-self: flex-start; display: none"  id="img3">
+                </div>
+                
+                <label for="ci_i4" class="form-label text-white" style="display: none">Imagem 4:</label>
+                <select class="form-select mb-4" id="ci_i4" style="display: none" onChange="CarrosselImagem()">
+                   <option selected>Nenhum</option>
+                </select>
+                <div class="d-flex justify-content-center align-items-center  pb-3" style="width: 10em; display: none;">
+                    <img class="img-fluid" style="width: 100%; height: auto; align-self: flex-start; display: none"  id="img4">
+                </div>
+                
+                <label for="ci_i5" class="form-label text-white" style="display: none">Imagem 5:</label>
+                <select class="form-select mb-4" id="ci_i5" style="display: none" onChange="CarrosselImagem()">
+                   <option selected>Nenhum</option>
+                </select>
+                <div class="d-flex justify-content-center align-items-center  pb-3" style="width: 10em; display: none;">
+                    <img class="img-fluid" style="width: 100%; height: auto; align-self: flex-start; display: none"  id="img5">
+                </div>
+                
+                <label for="ci_i6" class="form-label text-white" style="display: none">Imagem 6:</label>
+                <select class="form-select mb-4" id="ci_i6" style="display: none" onChange="CarrosselImagem()">
+                   <option selected>Nenhum</option>
+                </select>
+                <div class="d-flex justify-content-center align-items-center  pb-3" style="width: 10em; display: none;">
+                    <img class="img-fluid" style="width: 100%; height: auto; align-self: flex-start; display: none"  id="img6">
+                </div>
+                
+                <h4 class="text-left text-white mt-4">Selo (opcional)</h4>
+                <hr class="bg-white">
+                <select class="form-select mb-4" id="selo" onChange="Selo()">
+                    <option selected>Nenhum</option>
+                </select>
+                <div class="d-flex flex-wrap justify-content-center align-items-center pb-3" style="width: 5em;">
+                    <img class="img-fluid" style="width: 100%; height: auto; align-self: flex-start"  id="seloimg">
+                </div>
+                
+                
+                <h4 class="text-left text-white mt-4">Carrossel de informações</h4>
+                <hr class="bg-white">
+                
+                <label for="info_1" class="form-label text-white">Informação 1:</label>
+                <select class="form-select mb-4" id="info_1" onChange="MudarTipoInfo()">
+                    <option selected>Lista</option>
+                    <option>Paragrafo</option> 
+                    <option>Imagem</option>
+                </select>
+                
+                <input class="form-control mb-2" id="i1_l1" placeholder="Linha 1" maxlength="27" onInput="TextoEntrada()">
+                 <textarea class="form-control mb-2" id="i1_l2p" placeholder="Paragrafo" style="display: none"></textarea>
+                <input class="form-control mb-2" id="i1_l2" placeholder="Linha 2" maxlength="27" style="display: none"  onInput="TextoEntrada()">
+                <input class="form-control mb-2" id="i1_l3" placeholder="Linha 3" maxlength="27" style="display: none"  onInput="TextoEntrada()">
+                <input class="form-control mb-2" id="i1_l4" placeholder="Linha 4" maxlength="27" style="display: none"  onInput="TextoEntrada()">
+                 <select class="form-control mb-4" id="i1_i" style="display: none" onChange="TextoEntrada()">
+                    <option selected>Selecione</option>
+                </select>
+                
+                 <label for="info_2" style="display: none" class="form-label text-white mt-4">Informação 2:</label>
+                <select class="form-select mb-4" id="info_2" style="display: none" onChange="MudarTipoInfo()">
+                    <option selected>Paragrafo</option>
+                    <option>Imagem</option> 
+                    <option>Lista</option>
+                </select>
+                
+                <input class="form-control mb-2" id="i2_l1" placeholder="Título" style="display: none" maxlength="27" onInput="TextoEntrada()">
+                <textarea class="form-control mb-2" id="i2_l2p" style="display: none" placeholder="Paragrafo"></textarea>
+                <input class="form-control mb-2" id="i2_l2" placeholder="Linha 2" maxlength="27" style="display: none;" onInput="TextoEntrada()">
+                <input class="form-control mb-2" id="i2_l3" placeholder="Linha 3" maxlength="27" style="display: none;" onInput="TextoEntrada()">
+                <input class="form-control mb-2" id="i2_l4" placeholder="Linha 4" maxlength="27" style="display: none;" onInput="TextoEntrada()">
+                 <select class="form-control mb-4" id="i2_i" style="display: none" onChange="TextoEntrada()">
+                    <option selected>Selecione</option>
+                </select>
+                
+                <label for="info_3" class="form-label text-white mt-4" style="display: none">Informação 3:</label>
+                <select class="form-select mb-4" id="info_3" style="display: none" onChange="MudarTipoInfo()">
+                    <option selected>Imagem</option>
+                    <option>Lista</option> 
+                    <option>Paragrafo</option>
+                </select>
+                
+                <input class="form-control mb-2" id="i3_l1" placeholder="Linha 1" maxlength="27" style="display: none" onInput="TextoEntrada()">
+                 <textarea class="form-control mb-2" id="i3_l2p" placeholder="Paragrafo" style="display: none"></textarea>
+                <input class="form-control mb-2" id="i3_l2" placeholder="Linha 2" maxlength="27" style="display: none" onInput="TextoEntrada()">
+                <input class="form-control mb-2" id="i3_l3" placeholder="Linha 3" maxlength="27" style="display: none" onInput="TextoEntrada()">
+                <input class="form-control mb-2" id="i3_l4" placeholder="Linha 4" maxlength="27" style="display: none" onInput="TextoEntrada()">
+                <select class="form-control mb-4 mr-5" id="i3_i" style="display: none" onChange="TextoEntrada()">
+                    <option selected>Selecione</option>
+                </select>
+                
+                <label for="info_4" class="form-label text-white mt-4" style="display: none">Informação 4:</label>
+                <select class="form-select mb-4" id="info_4" style="display: none" onChange="MudarTipoInfo()">
+                    <option selected>Lista</option>
+                    <option>Paragrafo</option> 
+                    <option>Imagem</option>
+                </select>
+                
+                <input class="form-control mb-2" id="i4_l1" placeholder="Linha 1" style="display: none" onInput="TextoEntrada()">
+                 <textarea class="form-control mb-2" id="i4_l2p" placeholder="Paragrafo" style="display: none"></textarea>
+                <input class="form-control mb-2" id="i4_l2" placeholder="Linha 2" maxlength="27" style="display: none"  onInput="TextoEntrada()">
+                <input class="form-control mb-2" id="i4_l3" placeholder="Linha 3" maxlength="27" style="display: none"  onInput="TextoEntrada()">
+                <input class="form-control mb-2" id="i4_l4" placeholder="Linha 4" maxlength="27" style="display: none"  onInput="TextoEntrada()">
+                <select class="form-control mb-4" id="i4_i" style="display: none;" onChange="TextoEntrada()">
+                    <option selected>Selecione</option>
+                </select>
+                
+                <input type="button" class="btn mt-5 mb-5" id="Download" onClick="DownloadJSON()" value="Gerar arquivo">
+                
+            </div>
+            <div class="col-5 mt-3 text-center">
+                <div id="VIEWER" style="width: 100%; max-width: 360px; height: 100%; max-height: 640px;">
+                    <iframe id="Iframe" src="misc/viewer.html" width="360px" height="640px" style="width: 100%; height: 100%"></iframe>
+                    <button class="btn mt-3 btn-primary" onClick="PlayFrame()">Play</button>
+                    <button class="btn mt-3 btn-primary" onClick="JumpLogo()">>>Logo</button>
+                    <button class="btn mt-3 btn-primary" onClick="JumpMain()">>>Infos</button>
+                    <button class="btn mt-3" onClick="RefreshFrame()">Atualizar</button>
+                    <button class="btn mt-3" onClick="Visualizer()">Visualizar em Mobile</button>
+                    
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    
+</body>
+    
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    
+       <script src="AdDWeb.js"></script>
+</html>
