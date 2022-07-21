@@ -14,7 +14,9 @@ Portanto, a plataforma permite a automatização de geração de peças para cor
 # Links:
 
 Exemplo 1: https://work-space.sourceforge.io/hmweb/adweb.php?p=studiofit&ad=1
+
 Exemplo 2: https://work-space.sourceforge.io/hmweb/adweb.php?p=intense-campinas&ad=1
+
 Exemplo 3: https://work-space.sourceforge.io/hmweb/adweb.php?p=intense-campinas&ad=2
 
 Criador: https://work-space.sourceforge.io/hmweb/criador.html
